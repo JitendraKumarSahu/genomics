@@ -5,5 +5,6 @@ pipeline {
             agent {
                 docker { image 'sushantpande/bwaefs:efs' }
             }
+        }
     }
 }
