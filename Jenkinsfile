@@ -5,6 +5,9 @@ pipeline {
             agent {
                 docker { image 'sushantpande/bwaefs:efs' }
             }
+            steps {
+                sh 'echo JITENDRA'
+            }
         }
     }
 }
