@@ -1,6 +1,15 @@
 pipeline {
     agent any
     stages {
+        stage('build'){
+            environment { 
+                    AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
+                }
+            steps {
+                sh 'env'
+                sh 'echo $AOEU'
+            }
+        }
         stage('bwacreate') {
             /*
             agent { 
