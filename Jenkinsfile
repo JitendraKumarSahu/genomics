@@ -4,7 +4,7 @@ pipeline {
         stage('build'){
             environment { 
                     //AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
-                    KUBECONFIG=/root/.kube/kind-config-kind
+                    KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 }
             steps {
                 sh 'env'
