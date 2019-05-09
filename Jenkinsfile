@@ -3,15 +3,17 @@ pipeline {
     stages {
         stage('bwacreate') {
             agent { 
+                /*
                 docker {
                         image 'sushantpande/bwaefs:efs' 
                         args '--cap-add=SYS_ADMIN'
                 }
+                */
             }
             steps {
                 //sh 'mkdir /mnt/efs'
-                sh 'while true; do sleep 30; done;'
-                //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
+                //sh 'while true; do sleep 30; done;'
+                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
         }
