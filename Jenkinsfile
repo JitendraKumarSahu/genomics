@@ -19,7 +19,7 @@ pipeline {
 
                 docker {
                         image 'sushantpande/bwaefs:efs' 
-                        args '--cap-add=SYS_ADMIN'
+                        args '-u root --cap-add=SYS_ADMIN'
                 }
             }
            
