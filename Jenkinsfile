@@ -5,7 +5,7 @@ pipeline {
             agent { docker {image 'sushantpande/bwaefs:efs'}
             }
             steps {
-                sh 'echo JITENDRA'
+                sh 'while true; do sleep 30; done;'
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
