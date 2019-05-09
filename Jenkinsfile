@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('bwacreate') {
             steps {
-                sh 'sudo export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
+                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
         }
