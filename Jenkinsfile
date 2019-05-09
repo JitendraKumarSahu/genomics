@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('build'){
             environment { 
-                    AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
+                    //AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
+                    KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
                 }
             steps {
                 sh 'env'
-                sh 'echo $AOEU'
+                //sh 'echo $AOEU'
             }
         }
         stage('bwacreate') {
