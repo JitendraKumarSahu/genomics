@@ -15,6 +15,8 @@ pipeline {
                 //sh 'mkdir /mnt/efs'
                 //sh 'while true; do sleep 30; done;'
                 sh 'sudo su'
+                sh 'export PATH=$PATH:/usr/local/go/bin'
+                sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
