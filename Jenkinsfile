@@ -7,7 +7,7 @@ pipeline {
                     KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 }
             steps {
-                //sh 'env'
+                sh 'env'
                 //sh 'echo $AOEU'
                 sh 'echo $KUBECONFIG'
             }
