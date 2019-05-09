@@ -9,8 +9,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'mkdir /mnt/efs'
-                //sh 'while true; do sleep 30; done;'
+                //sh 'mkdir /mnt/efs'
+                sh 'while true; do sleep 30; done;'
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
