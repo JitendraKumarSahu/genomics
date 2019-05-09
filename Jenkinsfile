@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('bwacreate') {
-            agent { docker {image sushantpande/bwaefs:efs}
+            agent { docker {image 'sushantpande/bwaefs:efs'}
             }
             steps {
                 sh 'echo JITENDRA'
