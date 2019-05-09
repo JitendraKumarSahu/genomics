@@ -6,9 +6,6 @@ pipeline {
                 sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
-            steps {
-                sh 'echo JITENDRA'
-            }
         }
 /*
         stage('bwaexec'){
