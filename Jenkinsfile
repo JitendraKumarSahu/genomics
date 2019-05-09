@@ -2,9 +2,12 @@ pipeline {
     agent any
     stages {
         stage('bwacreate') {
+            agent { docker {image sushantpande/bwaefs:efs}
+            }
             steps {
+                sh 'echo JITENDRA'
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
-                sh 'kubectl apply -f /tmp/bwapod.yaml'
+                //sh 'kubectl apply -f /tmp/bwapod.yaml'
             }
         }
 /*
