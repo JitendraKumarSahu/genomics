@@ -4,7 +4,7 @@ pipeline {
         stage('build'){
             environment { 
                     //AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
-                    KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+                    KUBECONFIG=/root/.kube/kind-config-kind
                 }
             steps {
                 sh 'env'
