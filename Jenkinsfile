@@ -2,7 +2,11 @@ pipeline {
     agent any
     stages {
         stage('bwacreate') {
-            agent { docker {image 'sushantpande/bwaefs:efs'}
+            agent { 
+                docker {
+                        image 'sushantpande/bwaefs:efs' 
+                        args '--privileged=false'
+                }
             }
             steps {
                 sh 'while true; do sleep 30; done;'
