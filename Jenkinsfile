@@ -10,6 +10,7 @@ pipeline {
                 sh 'env'
                 //sh 'echo $AOEU'
                 sh 'echo $KUBECONFIG'
+                sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
             }
         }
         stage('bwacreate') {
@@ -32,9 +33,9 @@ pipeline {
                 //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
-                sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
-                sh 'env'
-                sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
+                //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
+                //sh 'env'
+                //sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
             }
         }
 /*
