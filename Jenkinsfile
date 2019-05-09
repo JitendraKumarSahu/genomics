@@ -5,7 +5,7 @@ pipeline {
             agent { 
                 docker {
                         image 'sushantpande/bwaefs:efs' 
-                        args '--privileged=false'
+                        args '--cap-add=SYS_ADMIN'
                 }
             }
             steps {
