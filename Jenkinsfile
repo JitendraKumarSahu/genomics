@@ -32,7 +32,7 @@ pipeline {
                 sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
-                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && whoami && echo $KUBECONFIG'
+                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
                 //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
                 //sh 'env'
