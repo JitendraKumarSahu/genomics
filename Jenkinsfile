@@ -1,42 +1,12 @@
 pipeline {
     agent any
     stages {
-        /*
-        stage('build'){
-            environment { 
-                    //AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
-                    KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
-                }
-            steps {
-                sh 'env'
-                //sh 'echo $AOEU'
-                sh 'echo $KUBECONFIG'
-                //sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
-            }
-        }
-        */
         stage('bwacreate') {
-            /*
-            agent { 
-                docker {
-                        image 'sushantpande/bwaefs:efs' 
-                        args '-u root --cap-add=SYS_ADMIN'
-                }
-            }
-            */
             steps {
-                //sh 'mkdir /mnt/efs'
-                //sh 'while true; do sleep 30; done;'
-                //sh 'sudo su - jenkins'
                 sh 'export PATH=$PATH:/usr/local/go/bin'
                 sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
-                //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
                 sh 'export KUBECONFIG=/root/.kube/kind-config-kind && whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
-                //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
-                //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
-                //sh 'env'
-                //sh 'echo $KUBECONFIG && sudo kubectl apply -f /tmp/bwapod.yaml'
             }
         }
 /*
@@ -49,6 +19,9 @@ pipeline {
         stage('gatkcreate'){
             agent none
             steps {
+                sh 'export PATH=$PATH:/usr/local/go/bin'
+                sh 'export PATH=$PATH:$(go env GOPATH)/bin'
+                sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/gatkpod.yaml'
             }
         }
