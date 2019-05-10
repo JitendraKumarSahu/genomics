@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+        /*
         stage('build'){
             environment { 
                     //AOEU= sh (returnStdout: true, script: 'echo aoeu').trim()
@@ -13,16 +14,14 @@ pipeline {
                 //sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
             }
         }
+        */
         stage('bwacreate') {
-           
             agent { 
-
                 docker {
                         image 'sushantpande/bwaefs:efs' 
                         args '-u root --cap-add=SYS_ADMIN'
                 }
             }
-           
             steps {
                 //sh 'mkdir /mnt/efs'
                 sh 'while true; do sleep 30; done;'
@@ -31,7 +30,7 @@ pipeline {
                 //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
-                //sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
+                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
                 //sh 'env'
