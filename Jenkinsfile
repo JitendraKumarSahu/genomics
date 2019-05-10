@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('bwacreate') {
             steps {
-                sh 'export PATH=$PATH:/usr/local/go/bin'
-                sh 'export PATH=$PATH:$(go env GOPATH)/bin'
-                sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
+                //sh 'export PATH=$PATH:/usr/local/go/bin'
+                //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
+                //sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 sh 'export KUBECONFIG=/root/.kube/kind-config-kind && whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
             }
         }
