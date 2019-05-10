@@ -36,7 +36,7 @@ pipeline {
                 //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
                 //sh 'env'
-                sh 'sudo kubectl apply -f /tmp/bwapod.yaml'
+                sh 'echo $KUBECONFIG && sudo kubectl apply -f /tmp/bwapod.yaml'
             }
         }
 /*
