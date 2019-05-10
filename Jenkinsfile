@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 //sh 'mkdir /mnt/efs'
-                sh 'while true; do sleep 30; done;'
+                //sh 'while true; do sleep 30; done;'
                 //sh 'sudo su'
                 //sh 'export PATH=$PATH:/usr/local/go/bin'
                 //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
