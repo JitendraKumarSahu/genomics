@@ -16,12 +16,14 @@ pipeline {
         }
         */
         stage('bwacreate') {
+            /*
             agent { 
                 docker {
                         image 'sushantpande/bwaefs:efs' 
                         args '-u root --cap-add=SYS_ADMIN'
                 }
             }
+            */
             steps {
                 //sh 'mkdir /mnt/efs'
                 //sh 'while true; do sleep 30; done;'
