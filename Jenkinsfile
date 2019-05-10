@@ -27,12 +27,12 @@ pipeline {
             steps {
                 //sh 'mkdir /mnt/efs'
                 //sh 'while true; do sleep 30; done;'
-                sh 'sudo su - jenkins'
+                //sh 'sudo su - jenkins'
                 //sh 'export PATH=$PATH:/usr/local/go/bin'
                 //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
                 //sh 'sudo su && export PATH=$PATH:/usr/local/go/bin && export PATH=$PATH:$(go env GOPATH)/bin'
-                sh 'export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
+                sh 'sudo su && export KUBECONFIG=/root/.kube/kind-config-kind && kubectl apply -f /tmp/bwapod.yaml'
                 //KUBECONFIG= sh (returnStdout: true, script: 'echo /root/.kube/kind-config-kind').trim()
                 //sh 'export KUBECONFIG=/root/.kube/kind-config-kind'
                 //sh 'env'
