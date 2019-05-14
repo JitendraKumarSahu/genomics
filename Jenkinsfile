@@ -6,9 +6,7 @@ pipeline {
                 //sh 'export PATH=$PATH:/usr/local/go/bin'
                 //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
-                //sh 'export KUBECONFIG=/root/.kube/config'
-                sh 'source ~/.bashrc'
-                sh 'echo $KUBECONFIG'
+                sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG'
                 sh 'kubectl cluster-info'
                 sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
             }
