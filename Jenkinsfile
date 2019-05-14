@@ -1,7 +1,6 @@
 pipeline {
     agent any
     stages {
-        /*
         stage('bwacreate') {
             steps {
                 //sh 'export PATH=$PATH:/usr/local/go/bin'
@@ -11,7 +10,7 @@ pipeline {
                 sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
             }
         }
-        */
+        
         /*
         stage('bwaexec'){
             steps {
@@ -21,14 +20,14 @@ pipeline {
             }
         }
         */
-       
+       /*
         stage('gatkcreate'){
             steps {
                 sh 'whoami'
                 sh 'export KUBECONFIG=/root/.kube/config && kubectl apply -f /tmp/gatkpod.yaml'
             }
         }
-        /*
+       
         stage('gatkexec'){
             steps {
                 sh 'whoami'
