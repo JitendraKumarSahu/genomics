@@ -15,7 +15,7 @@ pipeline {
         
         stage('bwaexec'){
             steps {
-                sh 'whoami'
+                //sh whoami'
                 sh """
                     POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")
                     (kubectl exec $POD -- /bin/bash -c bwa mem -R "@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE" /mnt/efs/scaffolds.fasta /mnt/efs/evolved-6-R1.fastq | samtools sort > /mnt/efs/bwaoutput.bam && samtools index /mnt/efs/bwaoutput.bam)
