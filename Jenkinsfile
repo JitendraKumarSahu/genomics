@@ -20,7 +20,7 @@ pipeline {
             }
         }
        
-       
+       /*
         stage('gatkcreate'){
             steps {
                 sh 'whoami'
@@ -34,6 +34,6 @@ pipeline {
                 sh 'export KUBECONFIG=/root/.kube/config && POD=$(kubectl get pod -l app=gatkapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "gatk HaplotypeCaller -R /mnt/efs/scaffolds.fasta -I /mnt/efs/bwaoutput.bam -O /mnt/efs/gatkoutput.vcf" '
             }
         }
-        
+        */
     }
 }
