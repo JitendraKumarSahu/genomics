@@ -2,7 +2,7 @@ pipeline {
    agent any
       stages {
          stage ('stage A') {
-            node ('node A') {
+            steps ('node A') {
                sh 'echo ${env.BUILD_ID}'
                sh 'echo ${env.BUILD_NUMBER}'
                sh 'echo ${env.NODE_NAME}'
@@ -10,7 +10,7 @@ pipeline {
             }
          } 
         stage ('stage B') {
-        node ('node B') {
+        steps ('node B') {
             sh 'echo ${env.BUILD_ID}'
             sh 'echo ${env.BUILD_NUMBER}'
             sh 'echo ${env.NODE_NAME}'
@@ -19,7 +19,7 @@ pipeline {
         }
     } 
     stage ('stage C') {
-        node ('node C') {
+        steps ('node C') {
             sh 'echo ${env.BUILD_ID}'
             sh 'echo ${env.BUILD_NUMBER}'
             sh 'echo ${env.NODE_NAME}'
