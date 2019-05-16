@@ -1,5 +1,36 @@
 pipeline {
     agent any
+    stages ('stage A') {
+        node ('node A') {
+            sh 'echo ${env.BUILD_ID}'
+            sh 'echo ${env.BUILD_NUMBER}'
+            sh 'echo ${env.NODE_NAME}'
+            sh 'echo 123'
+        }
+    } 
+    stages ('stage B') {
+        node ('node B') {
+            sh 'echo ${env.BUILD_ID}'
+            sh 'echo ${env.BUILD_NUMBER}'
+            sh 'echo ${env.NODE_NAME}'
+            sh 'echo 123'            
+            sh 'echo 456'
+        }
+    } 
+    stages ('stage C') {
+        node ('node C') {
+            sh 'echo ${env.BUILD_ID}'
+            sh 'echo ${env.BUILD_NUMBER}'
+            sh 'echo ${env.NODE_NAME}'
+            sh 'echo 123'            
+            sh 'echo 789'
+        }
+    } 
+}
+
+/*
+pipeline {
+    agent any
     stages {
        
         stage('bwacreate') {
