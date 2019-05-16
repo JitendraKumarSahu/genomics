@@ -2,7 +2,7 @@ pipeline {
    agent any
       stages {
          stage ('stage A') {
-            steps ('node A') {
+            steps {
                sh 'echo ${env.BUILD_ID}'
                sh 'echo ${env.BUILD_NUMBER}'
                sh 'echo ${env.NODE_NAME}'
