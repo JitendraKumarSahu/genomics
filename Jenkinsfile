@@ -10,23 +10,21 @@ pipeline {
             }
          } 
         stage ('stage B') {
-        steps ('node B') {
-            sh 'echo ${env.BUILD_ID}'
-            sh 'echo ${env.BUILD_NUMBER}'
-            sh 'echo ${env.NODE_NAME}'
-            sh 'echo 123'            
-            sh 'echo 456'
-        }
-    } 
-    stage ('stage C') {
-        steps ('node C') {
-            sh 'echo ${env.BUILD_ID}'
-            sh 'echo ${env.BUILD_NUMBER}'
-            sh 'echo ${env.NODE_NAME}'
-            sh 'echo 123'            
-            sh 'echo 789'
-        }
-    } 
+            steps {
+               sh "echo ${env.BUILD_ID}"
+               sh "echo ${env.BUILD_NUMBER}"
+               sh "echo ${env.NODE_NAME}"
+               sh "echo 789"
+            }
+        } 
+        stage ('stage C') {
+            steps ('node C') {
+               sh "echo ${env.BUILD_ID}"
+               sh "echo ${env.BUILD_NUMBER}"
+               sh "echo ${env.NODE_NAME}"           
+               sh "echo 789"
+            }
+        } 
     }
 }
 
