@@ -3,10 +3,10 @@ pipeline {
       stages {
          stage ('stage A') {
             steps {
-               sh 'echo ${env.BUILD_ID}'
-               sh 'echo ${env.BUILD_NUMBER}'
-               sh 'echo ${env.NODE_NAME}'
-               sh 'echo 123'
+               sh "echo ${env.BUILD_ID}"
+               sh "echo ${env.BUILD_NUMBER}"
+               sh "echo ${env.NODE_NAME}"
+               sh "echo 123"
             }
          } 
         stage ('stage B') {
