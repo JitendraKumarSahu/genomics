@@ -7,12 +7,13 @@ pipeline {
                 //sh 'export PATH=$PATH:/usr/local/go/bin'
                 //sh 'export PATH=$PATH:$(go env GOPATH)/bin'
                 //sh 'export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"'
-                sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
-                sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
+                //sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
+                //sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
+                sh 'env'
             }
         }
         
-        
+        /* 
         stage('bwaexec'){
             steps {
                 //sh whoami'
@@ -21,7 +22,7 @@ pipeline {
             }
         }
        
-       /*
+      
         stage('gatkcreate'){
             steps {
                 sh 'whoami'
