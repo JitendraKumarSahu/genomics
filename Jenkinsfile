@@ -1,6 +1,7 @@
 pipeline {
    environment {
        didSucceed = true
+       taskId = 0
    }
    agent any
       stages {
@@ -14,6 +15,13 @@ pipeline {
                sh "echo ${env.BUILD_TAG}"
                sh "echo ${env.TASK_ID}"
                sh "echo $didSucceed"
+               taskId = 1
+               /*
+               when {
+                  branch 'master'
+                  environment name: 'didSucceed', value: 'false'
+               }
+               */
                sh "echo 123"
             }
          } 
