@@ -1,5 +1,7 @@
 pipeline {
-   def didSucceed = true
+   environment {
+       didSucceed = true
+   }
    agent any
       stages {
          stage ('stage A') {
