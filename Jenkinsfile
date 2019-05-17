@@ -15,13 +15,15 @@ pipeline {
                sh "echo ${env.BUILD_TAG}"
                sh "echo ${env.TASK_ID}"
                sh "echo $didSucceed"
-               taskId = 1
+               sh "echo $taskId"
+               environment name: 'taskId', value: '1'
                /*
                when {
                   branch 'master'
                   environment name: 'didSucceed', value: 'false'
                }
                */
+               sh "echo $taskId"
                sh "echo 123"
             }
          } 
