@@ -1,7 +1,6 @@
 pipeline {
    environment {
        didSucceed = true
-       //taskId = 0
    }
    agent any
       stages {
@@ -10,12 +9,6 @@ pipeline {
                sh 'env'
                sh "echo ${env.BUILD_ID}"
                sh "echo ${env.BUILD_NUMBER}"
-               //sh "echo ${env.NODE_NAME}"
-               //sh "echo ${env.JOB_NAME}"
-               //sh "echo ${env.BUILD_TAG}"
-               //sh "echo $didSucceed"
-               //sh "echo $taskId"
-               //environment name: 'taskId', value: '1'
                script {
                    env.taskIDStageA = 20
                    env.taskResultStageA = true
@@ -26,8 +19,6 @@ pipeline {
                   environment name: 'didSucceed', value: 'false'
                }
                */
-               //sh "echo $taskId"
-               //sh "echo 123"
                sh "echo ${env.taskIDStageA}"
                sh "echo ${env.taskResultStageA}"
             }
@@ -37,22 +28,8 @@ pipeline {
             steps {
                sh "echo ${env.taskIDStageA}"
                sh "echo ${env.taskResultStageA}"
-               //sh "echo ${env.BUILD_ID}"
-               //sh "echo ${env.BUILD_NUMBER}"
-               //sh "echo ${env.NODE_NAME}"
-               //sh "echo 789"
-            }
-        } 
-        /*
-        stage ('stage C') {
-            steps ('node C') {
-               sh "echo ${env.BUILD_ID}"
-               sh "echo ${env.BUILD_NUMBER}"
-               sh "echo ${env.NODE_NAME}"           
-               sh "echo 789"
             }
         }
-        */
     }
 }
 
