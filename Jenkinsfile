@@ -1,4 +1,5 @@
 pipeline {
+   def didSucceed = true
    agent any
       stages {
          stage ('stage A') {
@@ -10,9 +11,11 @@ pipeline {
                sh "echo ${env.JOB_NAME}"
                sh "echo ${env.BUILD_TAG}"
                sh "echo ${env.TASK_ID}"
+               sh "echo $didSucceed"
                sh "echo 123"
             }
          } 
+         /*
         stage ('stage B') {
             steps {
                sh "echo ${env.BUILD_ID}"
@@ -28,7 +31,8 @@ pipeline {
                sh "echo ${env.NODE_NAME}"           
                sh "echo 789"
             }
-        } 
+        }
+        */
     }
 }
 
