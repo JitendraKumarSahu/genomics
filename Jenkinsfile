@@ -32,15 +32,18 @@ pipeline {
                sh "echo ${env.taskResultStageA}"
             }
          } 
-         /*
+        
         stage ('stage B') {
             steps {
-               sh "echo ${env.BUILD_ID}"
-               sh "echo ${env.BUILD_NUMBER}"
-               sh "echo ${env.NODE_NAME}"
-               sh "echo 789"
+               sh "echo ${env.taskIDStageA}"
+               sh "echo ${env.taskResultStageA}"
+               //sh "echo ${env.BUILD_ID}"
+               //sh "echo ${env.BUILD_NUMBER}"
+               //sh "echo ${env.NODE_NAME}"
+               //sh "echo 789"
             }
         } 
+        /*
         stage ('stage C') {
             steps ('node C') {
                sh "echo ${env.BUILD_ID}"
