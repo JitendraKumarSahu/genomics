@@ -6,6 +6,8 @@ pipeline {
                sh "echo ${env.BUILD_ID}"
                sh "echo ${env.BUILD_NUMBER}"
                sh "echo ${env.NODE_NAME}"
+               sh "echo ${env.JOB_NAME}"
+               sh "echo ${env.BUILD_TAG}"
                sh "echo 123"
             }
          } 
