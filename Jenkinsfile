@@ -17,13 +17,13 @@ pipeline {
                sh 'echo str'
                sh 'echo $POD'
                script {
-                  if ((kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}").contains == "bwa-deployment") {
+                  when {
+                     return (kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}").contains == "bwa-deployment")
+                  }
+                  steps {
                      env.taskIDStageA = 1
                      env.taskResultStageA = true
-                  } else {
-                     env.taskIDStageA = 0
-                     env.taskResultStageA = false
-                  }
+                  } 
                }
                /*
                when {
