@@ -37,28 +37,61 @@ pipeline {
                     sh 'POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "bwa mem -R "@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE" /mnt/efs/scaffolds.fasta /mnt/efs/evolved-6-R1.fastq | samtools sort > /mnt/efs/bwaoutput.bam && samtools index /mnt/efs/bwaoutput.bam" && exit'  
                     env.taskIDStageB = 1
                     env.taskResultStageB = true
-                    sh "echo ${env.taskIDStageb}"
+                    sh "echo ${env.taskIDStageB}"
                     sh "echo ${env.taskResultStageB}"
                  } else {
                     env.taskIDStageB = 0
                     env.taskResultStageB = false
                  }
               }
+              sh "echo ${env.taskIDStageB}"
+              sh "echo ${env.taskResultStageB}"
            }
         }
-        /*
+       
         stage('gatkcreate'){
             steps {
-                sh 'whoami'
-                sh 'export KUBECONFIG=/root/.kube/config && kubectl apply -f /tmp/gatkpod.yaml'
+               script {
+                  if (env.taskResultStageB == 'true') {
+                      sh 'whoami && kubectl apply -f /tmp/gatkpod.yaml''
+                      def str1 = sh(script: 'kubectl get deployment -l app=gatkapp -o jsonpath="{.items[0].metadata.name}"', returnStdout: true)
+                      echo "${str1}"
+                      if ( str1.equals("gatk-deployment")) {
+                          env.taskIDStageC = 1
+                          env.taskResultStageC = true
+                      } else {
+                          env.taskIDStageC = 0
+                          env.taskResultStageC = false
+                      }
+                  } else {
+                      env.taskIDStageC = 0
+                      env.taskResultStageC = false
+                  }
+               }
+               sh "echo ${env.taskIDStageA}"
+               sh "echo ${env.taskResultStageA}"
             }
         }
-       
+       /*
         stage('gatkexec'){
             steps {
-                sh 'whoami'
-                sh 'export KUBECONFIG=/root/.kube/config && POD=$(kubectl get pod -l app=gatkapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "gatk HaplotypeCaller -R /mnt/efs/scaffolds.fasta -I /mnt/efs/bwaoutput.bam -O /mnt/efs/gatkoutput.vcf" '
-            }
+              script {
+                 if (env.taskResultStageC == 'true') {
+                    sh "echo ${env.taskIDStageC}"
+                    sh "echo ${env.taskResultStageC}"
+                    sh 'POD=$(kubectl get pod -l app=gatkapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "gatk HaplotypeCaller -R /mnt/efs/scaffolds.fasta -I /mnt/efs/bwaoutput.bam -O /mnt/efs/gatkoutput.vcf" '  
+                    env.taskIDStageD = 1
+                    env.taskResultStageD = true
+                    sh "echo ${env.taskIDStageD}"
+                    sh "echo ${env.taskResultStageD}"
+                 } else {
+                    env.taskIDStageD = 0
+                    env.taskResultStageD = false
+                 }
+              }
+              sh "echo ${env.taskIDStageD}"
+              sh "echo ${env.taskResultStageD}"
+           }
         }
         */
     }
