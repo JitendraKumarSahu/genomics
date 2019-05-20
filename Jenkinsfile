@@ -7,7 +7,7 @@ pipeline {
          stage ('bwacreate') {
             steps {
                //sh "env"
-               sh 'echo ${env.BUILD_ID}'
+               sh "echo ${env.BUILD_ID}"
               // sh "echo ${env.BUILD_NUMBER}"
                sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
                sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
