@@ -29,12 +29,13 @@ pipeline {
          }
          
         stage ('bwaexec') {
-           sh "echo ${env.taskResultStageA}"
+          /*
            when {
               expression{
                  return env.taskResultStageA == true;
               }   
-           }   
+           }  
+           */
            steps {
                      sh "echo ${env.taskIDStageA}"
                      sh "echo ${env.taskResultStageA}"
