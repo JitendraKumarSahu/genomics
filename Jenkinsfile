@@ -18,7 +18,7 @@ pipeline {
                sh 'echo $POD'
                script {
                   when {
-                     return ((kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}").contains == "bwa-deployment")
+                     return ('kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'.contains == "bwa-deployment")
                   }
                   steps {
                      env.taskIDStageA = 1
