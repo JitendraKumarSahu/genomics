@@ -53,7 +53,7 @@ pipeline {
             steps {
                script {
                   if (env.taskResultStageB == 'true') {
-                      sh 'whoami && kubectl apply -f /tmp/gatkpod.yaml''
+                      sh 'whoami && kubectl apply -f /tmp/gatkpod.yaml'
                       def str1 = sh(script: 'kubectl get deployment -l app=gatkapp -o jsonpath="{.items[0].metadata.name}"', returnStdout: true)
                       echo "${str1}"
                       if ( str1.equals("gatk-deployment")) {
