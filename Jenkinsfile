@@ -23,25 +23,24 @@ pipeline {
                   }
                   
                 }
-               /*
-               when {
-                  branch 'master'
-                  environment name: 'didSucceed', value: 'false'
-               }
-               */
                sh "echo ${env.taskIDStageA}"
                sh "echo ${env.taskResultStageA}"
             }
          }
-         /*
+         
         stage ('bwaexec') {
-            steps {
-               sh "echo ${env.taskIDStageA}"
-               sh "echo ${env.taskResultStageA}"
-               sh 'POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "bwa mem -R "@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE" /mnt/efs/scaffolds.fasta /mnt/efs/evolved-6-R1.fastq | samtools sort > /mnt/efs/bwaoutput.bam && samtools index /mnt/efs/bwaoutput.bam" && exit'
-            }
+           when {
+              expression{
+                 return env.taskResultStageA == true;
+              }   
+           }   
+           steps {
+                     sh "echo ${env.taskIDStageA}"
+                     sh "echo ${env.taskResultStageA}"
+                     sh 'POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "bwa mem -R "@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE" /mnt/efs/scaffolds.fasta /mnt/efs/evolved-6-R1.fastq | samtools sort > /mnt/efs/bwaoutput.bam && samtools index /mnt/efs/bwaoutput.bam" && exit'  
+           }
         }
-        */
+       
         /*
         stage('gatkcreate'){
             steps {
