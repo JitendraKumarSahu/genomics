@@ -22,13 +22,13 @@ pipeline {
                   //def response = sh(script: 'curl https://some-host/some-service/getApi?apikey=someKey', returnStdout: true)
 
                   echo "${str}"
-                  /*
-                    if ( string == "bwa-deployment") {
+                  
+                    if ( str.equals("bwa-deployment")) {
                         echo 'I only execute on the master branch'
                     } else {
                         echo 'I execute elsewhere'
                     }
-                   */
+                  
                 }
                /*
                script {
@@ -47,8 +47,8 @@ pipeline {
                   environment name: 'didSucceed', value: 'false'
                }
                */
-               sh "echo ${env.taskIDStageA}"
-               sh "echo ${env.taskResultStageA}"
+               //sh "echo ${env.taskIDStageA}"
+               //sh "echo ${env.taskResultStageA}"
             }
          }
          /*
