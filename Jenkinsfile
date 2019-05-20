@@ -16,7 +16,15 @@ pipeline {
                //sh 'if [ $(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") == *str* ] then str = true'
                //sh 'echo str'
                //sh 'echo $POD'
-               //script {
+               script {
+                    if (env.BRANCH_NAME == 'master') {
+                        echo 'I only execute on the master branch'
+                    } else {
+                        echo 'I execute elsewhere'
+                    }
+                }
+               /*
+               script {
                   when {
                      return ('kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'.contains == "bwa-deployment")
                   }
@@ -25,6 +33,7 @@ pipeline {
                      env.taskResultStageA = true
                   } 
                //}
+               */
                /*
                when {
                   branch 'master'
