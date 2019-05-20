@@ -6,6 +6,7 @@ pipeline {
       stages {
          stage ('bwacreate') {
             steps {
+               script {
                //sh "env"
                sh "echo ${env.BUILD_ID}"
               // sh "echo ${env.BUILD_NUMBER}"
@@ -16,7 +17,7 @@ pipeline {
                //sh 'if [ $(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") == *str* ] then str = true'
                //sh 'echo str'
                //sh 'echo $POD'
-               script {
+
                     def string
                     string = sh '$(kubectl get deployment -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
                     if ( string == "bwa-deployment") {
