@@ -19,7 +19,8 @@ pipeline {
                //sh 'echo $POD'
 
                     def string
-                    string = sh '$(kubectl get deployment -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
+                    string = sh 'echo $(kubectl get deployment -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
+                    sh 'echo string'
                     if ( string == "bwa-deployment") {
                         echo 'I only execute on the master branch'
                     } else {
