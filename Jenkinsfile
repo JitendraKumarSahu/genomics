@@ -7,48 +7,30 @@ pipeline {
          stage ('bwacreate') {
             steps {
                script {
-               //sh "env"
-               sh "echo ${env.BUILD_ID}"
-              // sh "echo ${env.BUILD_NUMBER}"
-               sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
-               sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
-               //def str = false
-               //sh 'echo str'
-               //sh 'if [ $(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") == *str* ] then str = true'
-               //sh 'echo str'
-               //sh 'echo $POD'
-
-                    def str = sh(script: 'kubectl get deployment -l app=bwaapp -o jsonpath="{.items[0].metadata.name}"', returnStdout: true)
-                  //def response = sh(script: 'curl https://some-host/some-service/getApi?apikey=someKey', returnStdout: true)
-
+                  //sh "env"
+                  sh "echo ${env.BUILD_ID}"
+                  // sh "echo ${env.BUILD_NUMBER}"
+                  sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
+                  sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
+                  def str = sh(script: 'kubectl get deployment -l app=bwaapp -o jsonpath="{.items[0].metadata.name}"', returnStdout: true)
                   echo "${str}"
-                  
-                    if ( str.equals("bwa-deployment")) {
-                        echo 'I only execute on the master branch'
-                    } else {
-                        echo 'I execute elsewhere'
-                    }
-                  
-                }
-               /*
-               script {
-                  when {
-                     return ('kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'.contains == "bwa-deployment")
-                  }
-                  script {
+                  if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
                      env.taskResultStageA = true
-                  } 
-               //}
-               */
+                  } else {
+                     env.taskIDStageA = 0
+                     env.taskResultStageA = false
+                  }
+                  
+                }
                /*
                when {
                   branch 'master'
                   environment name: 'didSucceed', value: 'false'
                }
                */
-               //sh "echo ${env.taskIDStageA}"
-               //sh "echo ${env.taskResultStageA}"
+               sh "echo ${env.taskIDStageA}"
+               sh "echo ${env.taskResultStageA}"
             }
          }
          /*
