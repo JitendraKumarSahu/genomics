@@ -11,15 +11,15 @@ pipeline {
               // sh "echo ${env.BUILD_NUMBER}"
                sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
                sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
-               sh 'POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
+               sh 'export POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
                sh 'echo $POD'
                script {
-                  if ($POD == bwapp) {
-                     env.taskIDStageA = sh 'echo $RANDOM'
+                  if ("bwa-deployment" == *$POD*) {
+                     env.taskIDStageA = 1
                      env.taskResultStageA = true
                   } else {
-                     env.taskIDStageA =
-                     env.taskResultStageA = true
+                     env.taskIDStageA = 0
+                     env.taskResultStageA = false
                   }
                }
                /*
