@@ -22,11 +22,13 @@ pipeline {
                   //def response = sh(script: 'curl https://some-host/some-service/getApi?apikey=someKey', returnStdout: true)
 
                   echo "${str}"
+                  /*
                     if ( string == "bwa-deployment") {
                         echo 'I only execute on the master branch'
                     } else {
                         echo 'I execute elsewhere'
                     }
+                   */
                 }
                /*
                script {
