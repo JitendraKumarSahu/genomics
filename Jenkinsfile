@@ -72,7 +72,7 @@ pipeline {
                sh "echo ${env.taskResultStageA}"
             }
         }
-       /*
+       
         stage('gatkexec'){
             steps {
               script {
@@ -93,7 +93,7 @@ pipeline {
               sh "echo ${env.taskResultStageD}"
            }
         }
-        */
+        
     }
 }
 
