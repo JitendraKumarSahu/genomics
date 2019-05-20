@@ -9,10 +9,10 @@ pipeline {
                //sh "env"
                sh "echo ${env.BUILD_ID}"
               // sh "echo ${env.BUILD_NUMBER}"
-               //sh "export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info"
-               //sh "whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml"
-               //sh "POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")"
-               /*
+               sh "export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info"
+               sh "whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml"
+               sh "POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")"
+               sh "echo $POD"
                script {
                   if ($POD == bwapp) {
                      env.taskIDStageA = sh 'echo $RANDOM'
@@ -21,10 +21,6 @@ pipeline {
                      env.taskIDStageA =
                      env.taskResultStageA = true
                   }
-               }
-               */
-               script {
-                  env.taskIDStageA = sh 'echo $RANDOM'
                }
                /*
                when {
@@ -35,7 +31,8 @@ pipeline {
                sh "echo ${env.taskIDStageA}"
                sh "echo ${env.taskResultStageA}"
             }
-         } 
+         }
+         /*
         stage ('bwaexec') {
             steps {
                sh "echo ${env.taskIDStageA}"
@@ -43,6 +40,7 @@ pipeline {
                sh 'POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") && kubectl exec $POD -- /bin/bash -c "bwa mem -R "@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE" /mnt/efs/scaffolds.fasta /mnt/efs/evolved-6-R1.fastq | samtools sort > /mnt/efs/bwaoutput.bam && samtools index /mnt/efs/bwaoutput.bam" && exit'
             }
         }
+        */
         /*
         stage('gatkcreate'){
             steps {
