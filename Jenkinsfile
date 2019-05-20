@@ -14,7 +14,7 @@ pipeline {
                sh 'export POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")'
                sh 'echo $POD'
                script {
-                  if ("bwa-deployment" == *$POD*) {
+                  if ("bwa-deployment" == $POD) {
                      env.taskIDStageA = 1
                      env.taskResultStageA = true
                   } else {
