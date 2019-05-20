@@ -11,7 +11,8 @@ pipeline {
               // sh "echo ${env.BUILD_NUMBER}"
                sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
                sh 'whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml'
-               String str = false
+               def str = false
+               sh 'echo str'
                sh 'if [ $(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}") == *str* ] then str = true'
                sh 'echo str'
                sh 'echo $POD'
