@@ -6,11 +6,11 @@ pipeline {
       stages {
          stage ('bwacreate') {
             steps {
-               sh 'env'
+               //sh "env"
                sh "echo ${env.BUILD_ID}"
-               sh "echo ${env.BUILD_NUMBER}"
-               sh "export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info"
-               sh "whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml"
+              // sh "echo ${env.BUILD_NUMBER}"
+               //sh "export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info"
+               //sh "whoami && echo $KUBECONFIG && kubectl apply -f /tmp/bwapod.yaml"
                //sh "POD=$(kubectl get pod -l app=bwaapp -o jsonpath="{.items[0].metadata.name}")"
                /*
                script {
@@ -26,7 +26,6 @@ pipeline {
                script {
                   env.taskIDStageA = sh 'echo $RANDOM'
                }
-               sh "env.taskIDStageA"
                /*
                when {
                   branch 'master'
