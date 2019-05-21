@@ -4,7 +4,7 @@ pipeline {
    }
    agent any
       parameters {
-         string(defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE\', description: '', name: 'bwamem')
+         string(defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE\', description: 'bwa mem parameters', name: 'bwamem')
       }
       stages {
          stage ('bwacreate') {
