@@ -53,7 +53,7 @@ pipeline {
               sh "echo ${env.taskResultStageB}"
            }
         }
-       
+       /*
         stage('gatkcreate'){
             steps {
                script {
@@ -101,7 +101,7 @@ pipeline {
         
     }
 }
-
+*/
 /*
 pipeline {
     agent any
