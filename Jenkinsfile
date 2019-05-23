@@ -150,7 +150,7 @@ pipeline {
        didSucceed = true
    }
    agent any
-      /*
+     
       parameters {
          string(name: 'bwamem' , defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE', description: 'bwa mem parameters')
       }
@@ -200,7 +200,7 @@ pipeline {
               sh "echo ${env.taskResultStageB}"
            }
         }
-       /*
+      
         stage('gatkcreate'){
             steps {
                script {
@@ -265,7 +265,7 @@ pipeline {
             }
         }
         
-        /* 
+       
         stage('bwaexec'){
             steps {
                 //sh whoami'
