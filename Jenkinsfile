@@ -9,6 +9,153 @@ pipeline {
       }
       */
       stages {
+         stage ('bwa_cc') {
+            steps {
+               script {
+                  //sh "env"
+                  sh "python3 create_cc.py"
+                  /*
+                  if ( str.equals("bwa-deployment")) {
+                     env.taskIDStageA = 1
+                     env.taskResultStageA = true
+                  } else {
+                     env.taskIDStageA = 0
+                     env.taskResultStageA = false
+                  }
+                  */
+                }
+               //sh "echo ${env.taskIDStageA}"
+               //sh "echo ${env.taskResultStageA}"
+            }
+         }
+         
+        stage ('bwa_wait') {
+           steps {
+              script {
+                 if (env.taskResultStageA == 'true') {
+                    sh "python3 noop.py"
+                    sh "echo ${env.taskIDStageA}"
+                    sh "echo ${env.taskResultStageA}"
+                    env.taskIDStageB = 1
+                    env.taskResultStageB = true
+                    sh "echo ${env.taskIDStageB}"
+                    sh "echo ${env.taskResultStageB}"
+                 } else {
+                    env.taskIDStageB = 0
+                    env.taskResultStageB = false
+                 }
+              }
+              sh "echo ${env.taskIDStageB}"
+              sh "echo ${env.taskResultStageB}"
+           }
+        }
+     
+        stage('gatk_cc'){
+            steps {
+               script {
+                  if (env.taskResultStageB == 'true') {
+                      sh "python3 create_cc.py"
+                      if ( str1.equals("gatk-deployment")) {
+                          env.taskIDStageC = 1
+                          env.taskResultStageC = true
+                      } else {
+                          env.taskIDStageC = 0
+                          env.taskResultStageC = false
+                      }
+                  } else {
+                      env.taskIDStageC = 0
+                      env.taskResultStageC = false
+                  }
+               }
+               sh "echo ${env.taskIDStageA}"
+               sh "echo ${env.taskResultStageA}"
+            }
+        }
+       
+        stage('gatk_wait'){
+            steps {
+              script {
+                 if (env.taskResultStageC == 'true') {
+                    sh "python3 noop.py"
+                    sh "echo ${env.taskIDStageC}"
+                    sh "echo ${env.taskResultStageC}"  
+                    env.taskIDStageD = 1
+                    env.taskResultStageD = true
+                    sh "echo ${env.taskIDStageD}"
+                    sh "echo ${env.taskResultStageD}"
+                 } else {
+                    env.taskIDStageD = 0
+                    env.taskResultStageD = false
+                 }
+              }
+              sh "echo ${env.taskIDStageD}"
+              sh "echo ${env.taskResultStageD}"
+           }
+        }
+        stage('vcf_cc'){
+            steps {
+              script {
+                 if (env.taskResultStageC == 'true') {
+                    sh "python3 create_cc.py"
+                    sh "echo ${env.taskIDStageC}"
+                    sh "echo ${env.taskResultStageC}"  
+                    env.taskIDStageD = 1
+                    env.taskResultStageD = true
+                    sh "echo ${env.taskIDStageD}"
+                    sh "echo ${env.taskResultStageD}"
+                 } else {
+                    env.taskIDStageD = 0
+                    env.taskResultStageD = false
+                 }
+              }
+              sh "echo ${env.taskIDStageD}"
+              sh "echo ${env.taskResultStageD}"
+           }
+           stage('vcf_wait'){
+            steps {
+              script {
+                 if (env.taskResultStageC == 'true') {
+                    sh 'python3 noop.py'
+                    sh "echo ${env.taskIDStageC}"
+                    sh "echo ${env.taskResultStageC}"  
+                    env.taskIDStageD = 1
+                    env.taskResultStageD = true
+                    sh "echo ${env.taskIDStageD}"
+                    sh "echo ${env.taskResultStageD}"
+                 } else {
+                    env.taskIDStageD = 0
+                    env.taskResultStageD = false
+                 }
+              }
+              sh "echo ${env.taskIDStageD}"
+              sh "echo ${env.taskResultStageD}"
+           }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+pipeline {
+   environment {
+       didSucceed = true
+   }
+   agent any
+      /*
+      parameters {
+         string(name: 'bwamem' , defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE', description: 'bwa mem parameters')
+      }
+      
+      stages {
          stage ('bwacreate') {
             steps {
                script {
@@ -98,10 +245,10 @@ pipeline {
               sh "echo ${env.taskResultStageD}"
            }
         }
-        */
+        
     }
 }
-
+*/
 /*
 pipeline {
     agent any
