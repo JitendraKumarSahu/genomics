@@ -94,7 +94,7 @@ pipeline {
         }
         stage('vcf_cc'){
             steps {
-              script {
+               script {
                  if (env.taskResultStageC == 'true') {
                     sh "python3 create_cc.py"
                     sh "echo ${env.taskIDStageC}"
@@ -107,13 +107,14 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
-              }
-              sh "echo ${env.taskIDStageD}"
-              sh "echo ${env.taskResultStageD}"
-           }
-           stage('vcf_wait'){
+               }
+               sh "echo ${env.taskIDStageD}"
+               sh "echo ${env.taskResultStageD}"
+            }    
+        }
+        stage('vcf_wait'){
             steps {
-              script {
+               script {
                  if (env.taskResultStageC == 'true') {
                     sh 'python3 noop.py'
                     sh "echo ${env.taskIDStageC}"
@@ -126,19 +127,13 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
-              }
-              sh "echo ${env.taskIDStageD}"
-              sh "echo ${env.taskResultStageD}"
-           }
+               }
+               sh "echo ${env.taskIDStageD}"
+               sh "echo ${env.taskResultStageD}"
+            }
         }
     }
 }
-
-
-
-
-
-
 
 
 
@@ -248,7 +243,6 @@ pipeline {
         
     }
 }
-
 
 
 
