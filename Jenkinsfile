@@ -12,7 +12,7 @@ pipeline {
          stage ('bwacreate') {
             steps {
                script {
-                  //sh "env"
+                  sh "env"
                   sh "echo ${env.BUILD_ID}"
                   // sh "echo ${env.BUILD_NUMBER}"
                   sh 'export KUBECONFIG=/root/.kube/config && echo $KUBECONFIG && kubectl cluster-info'
