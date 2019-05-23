@@ -32,6 +32,8 @@ pipeline {
         stage ('bwa_wait') {
            steps {
               script {
+                 sh "python3 noop.py"
+                 /*
                  if (env.taskResultStageA == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageA}"
@@ -44,6 +46,7 @@ pipeline {
                     env.taskIDStageB = 0
                     env.taskResultStageB = false
                  }
+                 */
               }
               sh "echo ${env.taskIDStageB}"
               sh "echo ${env.taskResultStageB}"
@@ -53,6 +56,8 @@ pipeline {
         stage('gatk_cc'){
             steps {
                script {
+                  sh "python3 create_cc.py"
+                  /*
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
                       if ( str1.equals("gatk-deployment")) {
@@ -66,6 +71,7 @@ pipeline {
                       env.taskIDStageC = 0
                       env.taskResultStageC = false
                   }
+                  */
                }
                sh "echo ${env.taskIDStageA}"
                sh "echo ${env.taskResultStageA}"
@@ -75,6 +81,8 @@ pipeline {
         stage('gatk_wait'){
             steps {
               script {
+                 sh "python3 noop.py"
+                 /*
                  if (env.taskResultStageC == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageC}"
@@ -87,6 +95,7 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
+                 */
               }
               sh "echo ${env.taskIDStageD}"
               sh "echo ${env.taskResultStageD}"
@@ -95,6 +104,8 @@ pipeline {
         stage('vcf_cc'){
             steps {
                script {
+                 sh "python3 create_cc.py"
+                 /* 
                  if (env.taskResultStageC == 'true') {
                     sh "python3 create_cc.py"
                     sh "echo ${env.taskIDStageC}"
@@ -107,6 +118,7 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
+                 */
                }
                sh "echo ${env.taskIDStageD}"
                sh "echo ${env.taskResultStageD}"
@@ -115,6 +127,8 @@ pipeline {
         stage('vcf_wait'){
             steps {
                script {
+                 sh "python3 noop.py"
+                  /*
                  if (env.taskResultStageC == 'true') {
                     sh 'python3 noop.py'
                     sh "echo ${env.taskIDStageC}"
@@ -127,6 +141,7 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
+                 */
                }
                sh "echo ${env.taskIDStageD}"
                sh "echo ${env.taskResultStageD}"
