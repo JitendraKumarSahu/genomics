@@ -17,7 +17,7 @@ pipeline {
                   BUILD_ID = "${echo env.BUILD_ID}"
                   export BUILD_ID
                   sh "echo $BUILD_ID"
-                  sh "pwd && python test.py"
+                  sh "ENV = ${sh 'env'} && pwd && python test.py $ENV"
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
