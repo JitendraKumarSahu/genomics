@@ -14,6 +14,8 @@ pipeline {
                script {
                   sh "env"
                   //sh "pwd && python3 -u create_cc.py"
+                  BUILD_ID = "${echo env.BUILD_ID}"
+                  export BUILD_ID
                   sh "pwd && python test.py"
                   /*
                   if ( str.equals("bwa-deployment")) {
