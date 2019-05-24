@@ -13,7 +13,7 @@ pipeline {
             steps {
                script {
                   //sh "env"
-                  sh "pwd && python3 create_cc.py"
+                  sh "pwd && python3 -u create_cc.py"
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
