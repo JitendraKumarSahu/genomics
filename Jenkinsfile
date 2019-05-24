@@ -12,7 +12,7 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
-                  //sh "env"
+                  sh "env"
                   //sh "pwd && python3 -u create_cc.py"
                   sh "pwd && python test.py"
                   /*
