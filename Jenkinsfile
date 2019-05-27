@@ -12,8 +12,9 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
+                  File f = new File("env.txt")
                   params.each {param ->
-                      sh "echo ${param.key} -> ${param.value} "
+                       f.write(${param.key}=${param.value})
                   }
                   env.CURRENT_TASK = 'bwa_cc'
                   print "${WORK_DIR}"
