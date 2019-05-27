@@ -14,7 +14,7 @@ pipeline {
                script {
                   File f = new File("env.txt")
                   params.each {param ->
-                       f.write(${param.key}=${param.value})
+                       f.write("${param.key}"+"="+"${param.value}")
                   }
                   env.CURRENT_TASK = 'bwa_cc'
                   print "${WORK_DIR}"
