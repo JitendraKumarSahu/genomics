@@ -64,7 +64,9 @@ pipeline {
         stage('gatk_cc'){
             steps {
                script {
-                  sh "python3 create_cc.py"
+                  env.CURRENT_TASK = 'gatk_cc'
+                  sh "env >> env.txt"
+                  sh 'python create_cc.py env.txt'
                   /*
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
@@ -112,7 +114,9 @@ pipeline {
         stage('vcf_cc'){
             steps {
                script {
-                 sh "python3 create_cc.py"
+                  env.CURRENT_TASK = 'bwa_cc'
+                  sh "env >> env.txt"
+                  sh 'python create_cc.py env.txt'
                  /* 
                  if (env.taskResultStageC == 'true') {
                     sh "python3 create_cc.py"
