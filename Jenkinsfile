@@ -12,6 +12,7 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
+                  env.CURRENT_TASK = 'bwa_cc'
                   sh "env >> env.txt"
                   sh 'python create_cc.py env.txt'
                   //sh "pwd && python3 -u create_cc.py"
