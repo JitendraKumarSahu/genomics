@@ -12,8 +12,8 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
-                  System.getenv().each{
-                     println it
+                  params.each {param ->
+                      println "${param.key} -> ${param.value} "
                   }
                   env.CURRENT_TASK = 'bwa_cc'
                   print "${WORK_DIR}"
