@@ -7,8 +7,8 @@ pipeline {
        AMQP_USER = jenkins	
        REDIS_HOST = 172.31.33.249	
        WORK_DIR_NAME = tmp
-       bwa_gatk_dag_sleek.DATA_DIR = /mnt/efs/multistage/hg	
-       bwa_gatk_dag_sleek.bwa.input = 	ERR000589_1.filt.fastq	
+       bwa_gatk_dag_sleek.DATA_DIR = /mnt/efs	
+       bwa_gatk_dag_sleek.bwa.input = 	evolved-6-R1.fastq	
        bwa_gatk_dag_sleek.bwa.split =	1	
        bwa_gatk_dag_sleek.bwa.split_size = 0	
        bwa_gatk_dag_sleek.bwa.yaml = /tmp/bwapodjob.yaml	
