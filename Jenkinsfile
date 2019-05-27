@@ -1,10 +1,21 @@
 pipeline {
    environment {
        didSucceed = true
-	   MQP_PORT=5672	
-	  	   //def AMQP_PWD	gatkrabbit	
-	  	   //def AMQP_SERVER	172.31.45.104	
-	  	   //def AMQP_USER	gatkrabbit
+       AMQP_PORT =	5672	
+       AMQP_PWD	 = jenkins	
+       AMQP_SERVER = 172.31.33.249	
+       AMQP_USER = jenkins	
+       REDIS_HOST = 172.31.33.249	
+       WORK_DIR_NAME = tmp
+       bwa_gatk_dag_sleek.DATA_DIR = /mnt/efs/multistage/hg	
+       bwa_gatk_dag_sleek.bwa.input = 	ERR000589_1.filt.fastq	
+       bwa_gatk_dag_sleek.bwa.split =	1	
+       bwa_gatk_dag_sleek.bwa.split_size = 0	
+       bwa_gatk_dag_sleek.bwa.yaml = /tmp/bwapodjob.yaml	
+       bwa_gatk_dag_sleek.gatk.yaml = /tmp/gatkpodjob.yaml	
+       bwa_gatk_dag_sleek.max_cont = 10	
+       bwa_gatk_dag_sleek.ref = scaffolds	
+       bwa_gatk_dag_sleek.vcf.yaml = /tmp/vcfpodjob.yaml
    }
    agent any
       /*
