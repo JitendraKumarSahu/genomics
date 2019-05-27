@@ -20,11 +20,6 @@ pipeline {
        */
    }
    agent any
-      /*
-      parameters {
-         string(name: 'bwamem' , defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE', description: 'bwa mem parameters')
-      }
-      */
     stages {
          stage ('bwa_cc') {
             steps {
@@ -36,16 +31,9 @@ pipeline {
                   }
                   */
                   env.CURRENT_TASK = 'bwa_cc'
-                  print "${AMQP_PORT}"
+                  env.PARENT_TASK = null
                   sh "env >> env.txt"
                   sh 'python create_cc.py env.txt'
-                  //sh "pwd && python3 -u create_cc.py"
-                  //BUILD_ID = "${echo env.BUILD_ID}"
-                  //export BUILD_ID
-                  //sh "echo $BUILD_ID"
-                  //sh 'ENV = $(env) && pwd && python create_cc.py '
-                  //sh 'ENV = $(env)'
-                  //sh 'echo $ENV'
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
