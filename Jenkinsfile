@@ -12,6 +12,9 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
+                  System.getenv().each{
+                     println it
+                  }
                   env.CURRENT_TASK = 'bwa_cc'
                   print "${WORK_DIR}"
                   sh "env >> env.txt"
