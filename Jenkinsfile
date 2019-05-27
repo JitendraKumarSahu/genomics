@@ -7,6 +7,7 @@ pipeline {
        AMQP_USER = "jenkins"	
        REDIS_HOST = "172.31.33.249"	
        WORK_DIR_NAME = "tmp"
+      /*
        "bwa_gatk_dag_sleek.DATA_DIR" = "/mnt/efs"	
        "bwa_gatk_dag_sleek.bwa.input" = "evolved-6-R1.fastq"	
        "bwa_gatk_dag_sleek.bwa.split" =	1	
@@ -16,6 +17,7 @@ pipeline {
        "bwa_gatk_dag_sleek.max_cont" = 10	
        "bwa_gatk_dag_sleek.ref" = "scaffolds"	
        "bwa_gatk_dag_sleek.vcf.yaml" = "/tmp/vcfpodjob.yaml"
+       */
    }
    agent any
       /*
