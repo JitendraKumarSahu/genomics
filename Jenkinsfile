@@ -1,7 +1,7 @@
 pipeline {
    environment {
        didSucceed = true
-       AMQP_PORT =	5672	
+       AMQP_PORT =	15672	
        AMQP_PWD	 = "jenkins"	
        AMQP_SERVER = "172.31.33.249"	
        AMQP_USER = "jenkins"	
@@ -37,7 +37,7 @@ pipeline {
                   env.ti = ti
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env.txt"
-                  sh 'python create_cc.py env.txt'
+                  sh 'python3 create_cc.py env.txt'
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
