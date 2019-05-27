@@ -1,6 +1,10 @@
 pipeline {
    environment {
        didSucceed = true
+	   MQP_PORT=5672	
+	  	   //def AMQP_PWD	gatkrabbit	
+	  	   //def AMQP_SERVER	172.31.45.104	
+	  	   //def AMQP_USER	gatkrabbit
    }
    agent any
       /*
@@ -8,13 +12,7 @@ pipeline {
          string(name: 'bwamem' , defaultValue: '@RG\\tID:foo\\tLB:bar\\tPL:illumina\\tPU:illumina\\tSM:SAMPLE', description: 'bwa mem parameters')
       }
       */
-      stages {
-	      script {
-                   def AMQP_PORT=5672	
-	  	   //def AMQP_PWD	gatkrabbit	
-	  	   //def AMQP_SERVER	172.31.45.104	
-	  	   //def AMQP_USER	gatkrabbit	
-	      }
+    stages {
          stage ('bwa_cc') {
             steps {
                script {
