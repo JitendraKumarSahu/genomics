@@ -2,20 +2,20 @@ pipeline {
    environment {
        didSucceed = true
        AMQP_PORT =	5672	
-       AMQP_PWD	 = jenkins	
+       AMQP_PWD	 = "jenkins"	
        AMQP_SERVER = "172.31.33.249"	
-       AMQP_USER = jenkins	
+       AMQP_USER = "jenkins"	
        REDIS_HOST = "172.31.33.249"	
-       WORK_DIR_NAME = tmp
-       bwa_gatk_dag_sleek.DATA_DIR = /mnt/efs	
-       bwa_gatk_dag_sleek.bwa.input = 	evolved-6-R1.fastq	
-       bwa_gatk_dag_sleek.bwa.split =	1	
-       bwa_gatk_dag_sleek.bwa.split_size = 0	
-       bwa_gatk_dag_sleek.bwa.yaml = /tmp/bwapodjob.yaml	
-       bwa_gatk_dag_sleek.gatk.yaml = /tmp/gatkpodjob.yaml	
-       bwa_gatk_dag_sleek.max_cont = 10	
-       bwa_gatk_dag_sleek.ref = scaffolds	
-       bwa_gatk_dag_sleek.vcf.yaml = /tmp/vcfpodjob.yaml
+       WORK_DIR_NAME = "tmp"
+       "bwa_gatk_dag_sleek.DATA_DIR" = "/mnt/efs"	
+       "bwa_gatk_dag_sleek.bwa.input" = "evolved-6-R1.fastq"	
+       "bwa_gatk_dag_sleek.bwa.split" =	1	
+       "bwa_gatk_dag_sleek.bwa.split_size" = 0	
+       "bwa_gatk_dag_sleek.bwa.yaml" = "/tmp/bwapodjob.yaml"
+       "bwa_gatk_dag_sleek.gatk.yaml" = "/tmp/gatkpodjob.yaml"	
+       "bwa_gatk_dag_sleek.max_cont" = 10	
+       "bwa_gatk_dag_sleek.ref" = "scaffolds"	
+       "bwa_gatk_dag_sleek.vcf.yaml" = "/tmp/vcfpodjob.yaml"
    }
    agent any
       /*
