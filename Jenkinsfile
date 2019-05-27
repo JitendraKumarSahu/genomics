@@ -13,11 +13,12 @@ pipeline {
             steps {
                script {
                   sh "env >> env.txt"
+                  sh 'python create_cc.py env.txt'
                   //sh "pwd && python3 -u create_cc.py"
                   //BUILD_ID = "${echo env.BUILD_ID}"
                   //export BUILD_ID
                   //sh "echo $BUILD_ID"
-                  //sh 'ENV = $(env) && pwd && python create_cc.py $ENV'
+                  //sh 'ENV = $(env) && pwd && python create_cc.py '
                   //sh 'ENV = $(env)'
                   //sh 'echo $ENV'
                   /*
