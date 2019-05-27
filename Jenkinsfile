@@ -3,9 +3,9 @@ pipeline {
        didSucceed = true
        AMQP_PORT =	5672	
        AMQP_PWD	 = jenkins	
-       AMQP_SERVER = 172.31.33.249	
+       AMQP_SERVER = "172.31.33.249"	
        AMQP_USER = jenkins	
-       REDIS_HOST = 172.31.33.249	
+       REDIS_HOST = "172.31.33.249"	
        WORK_DIR_NAME = tmp
        bwa_gatk_dag_sleek.DATA_DIR = /mnt/efs	
        bwa_gatk_dag_sleek.bwa.input = 	evolved-6-R1.fastq	
