@@ -9,10 +9,10 @@ pipeline {
       }
       */
       stages {
-         def AMQP_PORT	5672	
-	  	   def AMQP_PWD	gatkrabbit	
-	  	   def AMQP_SERVER	172.31.45.104	
-	  	   def AMQP_USER	gatkrabbit	
+         def AMQP_PORT=5672	
+	  	   //def AMQP_PWD	gatkrabbit	
+	  	   //def AMQP_SERVER	172.31.45.104	
+	  	   //def AMQP_USER	gatkrabbit	
 	  	
          stage ('bwa_cc') {
             steps {
