@@ -12,14 +12,14 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
-                  //sh "env"
+                  sh "env >> env.txt"
                   //sh "pwd && python3 -u create_cc.py"
                   //BUILD_ID = "${echo env.BUILD_ID}"
                   //export BUILD_ID
                   //sh "echo $BUILD_ID"
                   //sh 'ENV = $(env) && pwd && python create_cc.py $ENV'
-                  sh 'ENV = $(env)'
-                  sh 'echo $ENV'
+                  //sh 'ENV = $(env)'
+                  //sh 'echo $ENV'
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
