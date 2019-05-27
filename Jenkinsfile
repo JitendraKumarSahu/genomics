@@ -32,7 +32,7 @@ pipeline {
                   */
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
-                  env.ti = {env.BUILD_ID}+'bwa_cc'
+                  echo env.BUILD_ID +"_bwa_cc" >> env.ti
                   sh "env >> env.txt"
                   sh 'python create_cc.py env.txt'
                   /*
