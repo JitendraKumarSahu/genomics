@@ -13,7 +13,7 @@ pipeline {
             steps {
                script {
                   params.each {param ->
-                      sh "cat ${param.key} -> ${param.value} "
+                      sh "echo ${param.key} -> ${param.value} "
                   }
                   env.CURRENT_TASK = 'bwa_cc'
                   print "${WORK_DIR}"
