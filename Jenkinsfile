@@ -32,6 +32,7 @@ pipeline {
                   */
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
+                  env.ti = null
                   sh 'env.ti = ${BUILD_ID}_bwa_cc'
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env.txt"
