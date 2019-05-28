@@ -51,7 +51,7 @@ pipeline {
                //sh "echo ${env.taskResultStageA}"
             }
          }
-         
+        /* 
         stage ('bwa_wait') {
            steps {
               script {
@@ -74,7 +74,7 @@ pipeline {
                     env.taskIDStageB = 0
                     env.taskResultStageB = false
                  }
-                 */
+                 //
               }
               //sh "echo ${env.taskIDStageB}"
               //sh "echo ${env.taskResultStageB}"
@@ -104,7 +104,7 @@ pipeline {
                       env.taskIDStageC = 0
                       env.taskResultStageC = false
                   }
-                  */
+                  //
                }
                //sh "echo ${env.taskIDStageA}"
                //sh "echo ${env.taskResultStageA}"
@@ -133,7 +133,7 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
-                 */
+                 //
               }
               //sh "echo ${env.taskIDStageD}"
               //sh "echo ${env.taskResultStageD}"
@@ -161,7 +161,7 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
-                 */
+                 //
                }
                //sh "echo ${env.taskIDStageD}"
                //sh "echo ${env.taskResultStageD}"
@@ -176,7 +176,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  sh "python3 noop.py env.txt"
-                  /*
+                  //
                  if (env.taskResultStageC == 'true') {
                     sh 'python3 noop.py'
                     sh "echo ${env.taskIDStageC}"
@@ -189,11 +189,12 @@ pipeline {
                     env.taskIDStageD = 0
                     env.taskResultStageD = false
                  }
-                 */
+                 //
                }
                //sh "echo ${env.taskIDStageD}"
                //sh "echo ${env.taskResultStageD}"
             }
+        */
         }
     }
 }
