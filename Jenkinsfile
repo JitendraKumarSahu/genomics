@@ -61,7 +61,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  sh "python3 noop.py env.txt"
-                 /*
+                 //
                  if (env.taskResultStageA == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageA}"
@@ -90,7 +90,7 @@ pipeline {
                   env.ti = ti
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt'
-                  /*
+                  //
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
                       if ( str1.equals("gatk-deployment")) {
@@ -120,7 +120,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  sh "python3 noop.py env.txt"
-                 /*
+                 //
                  if (env.taskResultStageC == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageC}"
@@ -148,7 +148,7 @@ pipeline {
                   env.ti = ti
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt'
-                 /* 
+                 // 
                  if (env.taskResultStageC == 'true') {
                     sh "python3 create_cc.py"
                     sh "echo ${env.taskIDStageC}"
@@ -194,8 +194,9 @@ pipeline {
                //sh "echo ${env.taskIDStageD}"
                //sh "echo ${env.taskResultStageD}"
             }
-        */
+        
         }
+        */
     }
 }
 
