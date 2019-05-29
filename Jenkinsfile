@@ -55,7 +55,7 @@ pipeline {
               }
            }
         }
-        /*
+        
         stage('gatk_cc'){
             steps {
                script {
@@ -67,7 +67,7 @@ pipeline {
                   //sh 'python3 create_cc.py env3.txt gatkjob'
             }
         }
-       */
+       
        /*
         stage('gatk_wait'){
             steps {
