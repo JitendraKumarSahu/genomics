@@ -88,7 +88,7 @@ pipeline {
             steps {
                script {
                   env.CURRENT_TASK = 'gatk_cc'
-                  env.PARENT_TASK = 'gatk_wait'
+                  env.PARENT_TASK = null
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env.txt"
