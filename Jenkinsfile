@@ -1,7 +1,7 @@
 pipeline {
    environment {
-       /*
        didSucceed = true
+       /*
        AMQP_PORT =	15672	
        AMQP_PWD	 = "jenkins"	
        AMQP_SERVER = "172.31.33.249"	
