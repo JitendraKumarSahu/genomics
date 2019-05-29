@@ -36,8 +36,8 @@ pipeline {
                   def ti =  env.BUILD_ID +'_bwa_cc'
                   env.ti = ti
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
-                  sh "env >> env.txt"
-                  sh 'python3 create_cc.py env.txt bwajob'
+                  sh "env >> env1.txt"
+                  sh 'python3 create_cc.py env1.txt bwajob'
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
@@ -61,8 +61,8 @@ pipeline {
                  env.PARENT_TASK = 'bwa_cc'
                  def ti =  env.BUILD_ID +'_bwa_wait'
                  env.ti = ti
-                 sh "env >> env.txt"
-                 //sh "python3 noop.py env.txt"
+                 sh "env >> env2.txt"
+                 sh "python3 noop.py env2.txt"
                  /*
                  if (env.taskResultStageA == 'true') {
                     sh "python3 noop.py"
@@ -90,8 +90,8 @@ pipeline {
                   env.PARENT_TASK = 'bwa_wait'
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
-                  sh "env >> env.txt"
-                  sh 'python3 create_cc.py env.txt gatkjob'
+                  sh "env >> env3.txt"
+                  sh 'python3 create_cc.py env3.txt gatkjob'
                   /*
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
