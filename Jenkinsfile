@@ -83,7 +83,7 @@ pipeline {
            }
         }
         */
-        
+        /*
         stage('gatk_cc'){
             steps {
                script {
@@ -93,7 +93,7 @@ pipeline {
                   env.ti = ti
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt gatkjob'
-                  /*
+                  //
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
                       if ( str1.equals("gatk-deployment")) {
@@ -107,13 +107,13 @@ pipeline {
                       env.taskIDStageC = 0
                       env.taskResultStageC = false
                   }
-                  */
+                  //
                }
                //sh "echo ${env.taskIDStageA}"
                //sh "echo ${env.taskResultStageA}"
             }
         }
-       
+       */
        /*
         stage('gatk_wait'){
             steps {
