@@ -64,7 +64,7 @@ pipeline {
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env3.txt"
-                  //sh 'python3 create_cc.py env3.txt gatkjob'
+                  sh 'python3 create_cc.py env3.txt gatkjob'
                }
             }
         }
@@ -79,23 +79,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  //sh "python3 noop.py env.txt"
-                 /
-                 if (env.taskResultStageC == 'true') {
-                    sh "python3 noop.py"
-                    sh "echo ${env.taskIDStageC}"
-                    sh "echo ${env.taskResultStageC}"  
-                    env.taskIDStageD = 1
-                    env.taskResultStageD = true
-                    sh "echo ${env.taskIDStageD}"
-                    sh "echo ${env.taskResultStageD}"
-                 } else {
-                    env.taskIDStageD = 0
-                    env.taskResultStageD = false
-                 }
-                 //
               }
-              //sh "echo ${env.taskIDStageD}"
-              //sh "echo ${env.taskResultStageD}"
            }
         }
         stage('vcf_cc'){
@@ -107,23 +91,7 @@ pipeline {
                   env.ti = ti
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt'
-                 //
-                 if (env.taskResultStageC == 'true') {
-                    sh "python3 create_cc.py"
-                    sh "echo ${env.taskIDStageC}"
-                    sh "echo ${env.taskResultStageC}"  
-                    env.taskIDStageD = 1
-                    env.taskResultStageD = true
-                    sh "echo ${env.taskIDStageD}"
-                    sh "echo ${env.taskResultStageD}"
-                 } else {
-                    env.taskIDStageD = 0
-                    env.taskResultStageD = false
-                 }
-                 //
                }
-               //sh "echo ${env.taskIDStageD}"
-               //sh "echo ${env.taskResultStageD}"
             }    
         }
         stage('vcf_wait'){
@@ -135,25 +103,8 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  //sh "python3 noop.py env.txt"
-                 //
-                 if (env.taskResultStageC == 'true') {
-                    sh 'python3 noop.py'
-                    sh "echo ${env.taskIDStageC}"
-                    sh "echo ${env.taskResultStageC}"  
-                    env.taskIDStageD = 1
-                    env.taskResultStageD = true
-                    sh "echo ${env.taskIDStageD}"
-                    sh "echo ${env.taskResultStageD}"
-                 } else {
-                    env.taskIDStageD = 0
-                    env.taskResultStageD = false
-                 }
-                 //
                }
-               //sh "echo ${env.taskIDStageD}"
-               //sh "echo ${env.taskResultStageD}"
             }
-          
         }
         */
     }
