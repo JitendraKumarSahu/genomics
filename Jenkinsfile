@@ -38,6 +38,7 @@ pipeline {
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env1.txt"
                   sh 'python3 create_cc.py env1.txt bwajob'
+               }
             }
          }
         
