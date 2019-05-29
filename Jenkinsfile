@@ -25,12 +25,12 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
-                  /*
+                  //
                   File f = new File("env.txt")
                   params.each {param ->
                        f.write("${param.key}"+"="+"${param.value}")
                   }
-                  */
+                  //
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
                   def ti =  env.BUILD_ID +'_bwa_cc'
@@ -38,7 +38,7 @@ pipeline {
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt'
-                  /*
+                  //
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
                      env.taskResultStageA = true
@@ -46,7 +46,7 @@ pipeline {
                      env.taskIDStageA = 0
                      env.taskResultStageA = false
                   }
-                  */
+                  //
                 }
                //sh "echo ${env.taskIDStageA}"
                //sh "echo ${env.taskResultStageA}"
