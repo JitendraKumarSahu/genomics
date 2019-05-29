@@ -21,7 +21,6 @@ pipeline {
    }
    agent any
     stages {
-       
          stage ('bwa_cc') {
             steps {
                script {
@@ -41,8 +40,6 @@ pipeline {
                }
             }
          }
-        
-        
         stage ('bwa_wait') {
            steps {
               script {
@@ -55,7 +52,6 @@ pipeline {
               }
            }
         }
-        
         stage('gatk_cc'){
             steps {
                script {
