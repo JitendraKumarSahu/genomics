@@ -21,6 +21,7 @@ pipeline {
    }
    agent any
     stages {
+       /*
          stage ('bwa_cc') {
             steps {
                script {
@@ -51,7 +52,8 @@ pipeline {
                //sh "echo ${env.taskResultStageA}"
             }
          }
-        /*
+        */
+        
         stage ('bwa_wait') {
            steps {
               script {
@@ -80,7 +82,7 @@ pipeline {
               //sh "echo ${env.taskResultStageB}"
            }
         }
-        */
+        
         /* 
         stage('gatk_cc'){
             steps {
