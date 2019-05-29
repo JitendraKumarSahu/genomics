@@ -64,7 +64,7 @@ pipeline {
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env3.txt"
-                  sh 'python3 create_cc.py env3.txt gatkjob'
+                  //sh 'python3 create_cc.py env3.txt gatkjob'
             }
         }
        */
