@@ -63,7 +63,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  sh "python3 noop.py env.txt"
-                 //
+                 /*
                  if (env.taskResultStageA == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageA}"
@@ -76,7 +76,7 @@ pipeline {
                     env.taskIDStageB = 0
                     env.taskResultStageB = false
                  }
-                 //
+                 */
               }
               //sh "echo ${env.taskIDStageB}"
               //sh "echo ${env.taskResultStageB}"
