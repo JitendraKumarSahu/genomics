@@ -53,7 +53,7 @@ pipeline {
             }
          }
         
-        /*
+        
         stage ('bwa_wait') {
            steps {
               script {
@@ -63,7 +63,7 @@ pipeline {
                  env.ti = ti
                  sh "env >> env.txt"
                  //sh "python3 noop.py env.txt"
-                 //
+                 /*
                  if (env.taskResultStageA == 'true') {
                     sh "python3 noop.py"
                     sh "echo ${env.taskIDStageA}"
@@ -76,24 +76,23 @@ pipeline {
                     env.taskIDStageB = 0
                     env.taskResultStageB = false
                  }
-                 //
+                 */
               }
               //sh "echo ${env.taskIDStageB}"
               //sh "echo ${env.taskResultStageB}"
            }
         }
-        */
-        /*
+     
         stage('gatk_cc'){
             steps {
                script {
                   env.CURRENT_TASK = 'gatk_cc'
-                  env.PARENT_TASK = null
+                  env.PARENT_TASK = 'bwa_wait'
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env.txt"
                   sh 'python3 create_cc.py env.txt gatkjob'
-                  //
+                  /*
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
                       if ( str1.equals("gatk-deployment")) {
@@ -107,13 +106,13 @@ pipeline {
                       env.taskIDStageC = 0
                       env.taskResultStageC = false
                   }
-                  //
+                  */
                }
                //sh "echo ${env.taskIDStageA}"
                //sh "echo ${env.taskResultStageA}"
             }
         }
-       */
+    
        /*
         stage('gatk_wait'){
             steps {
