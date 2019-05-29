@@ -37,7 +37,7 @@ pipeline {
                   env.ti = ti
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env.txt"
-                  sh 'python3 create_cc.py env.txt'
+                  sh 'python3 create_cc.py bwajob.yaml env.txt'
                   /*
                   if ( str.equals("bwa-deployment")) {
                      env.taskIDStageA = 1
@@ -92,8 +92,8 @@ pipeline {
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env.txt"
-                  sh 'python3 create_cc.py env.txt'
-                  //
+                  sh 'python3 create_cc.py gatkjob.yaml env.txt'
+                  /*
                   if (env.taskResultStageB == 'true') {
                       sh "python3 create_cc.py"
                       if ( str1.equals("gatk-deployment")) {
@@ -107,7 +107,7 @@ pipeline {
                       env.taskIDStageC = 0
                       env.taskResultStageC = false
                   }
-                  //
+                  */
                }
                //sh "echo ${env.taskIDStageA}"
                //sh "echo ${env.taskResultStageA}"
