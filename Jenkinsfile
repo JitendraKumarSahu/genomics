@@ -113,7 +113,7 @@ pipeline {
                //sh "echo ${env.taskResultStageA}"
             }
         }
-       */
+       
        /*
         stage('gatk_wait'){
             steps {
