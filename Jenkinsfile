@@ -38,18 +38,6 @@ pipeline {
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env1.txt"
                   sh 'python3 create_cc.py env1.txt bwajob'
-                  /*
-                  if ( str.equals("bwa-deployment")) {
-                     env.taskIDStageA = 1
-                     env.taskResultStageA = true
-                  } else {
-                     env.taskIDStageA = 0
-                     env.taskResultStageA = false
-                  }
-                  */
-                }
-               //sh "echo ${env.taskIDStageA}"
-               //sh "echo ${env.taskResultStageA}"
             }
          }
         
@@ -63,26 +51,10 @@ pipeline {
                  env.ti = ti
                  sh "env >> env2.txt"
                  sh "python3 noop.py env2.txt"
-                 /*
-                 if (env.taskResultStageA == 'true') {
-                    sh "python3 noop.py"
-                    sh "echo ${env.taskIDStageA}"
-                    sh "echo ${env.taskResultStageA}"
-                    env.taskIDStageB = 1
-                    env.taskResultStageB = true
-                    sh "echo ${env.taskIDStageB}"
-                    sh "echo ${env.taskResultStageB}"
-                 } else {
-                    env.taskIDStageB = 0
-                    env.taskResultStageB = false
-                 }
-                 */
               }
-              //sh "echo ${env.taskIDStageB}"
-              //sh "echo ${env.taskResultStageB}"
            }
         }
-     
+        /*
         stage('gatk_cc'){
             steps {
                script {
@@ -92,27 +64,9 @@ pipeline {
                   env.ti = ti
                   sh "env >> env3.txt"
                   sh 'python3 create_cc.py env3.txt gatkjob'
-                  /*
-                  if (env.taskResultStageB == 'true') {
-                      sh "python3 create_cc.py"
-                      if ( str1.equals("gatk-deployment")) {
-                          env.taskIDStageC = 1
-                          env.taskResultStageC = true
-                      } else {
-                          env.taskIDStageC = 0
-                          env.taskResultStageC = false
-                      }
-                  } else {
-                      env.taskIDStageC = 0
-                      env.taskResultStageC = false
-                  }
-                  */
-               }
-               //sh "echo ${env.taskIDStageA}"
-               //sh "echo ${env.taskResultStageA}"
             }
         }
-    
+       */
        /*
         stage('gatk_wait'){
             steps {
