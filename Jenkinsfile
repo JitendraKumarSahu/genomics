@@ -42,6 +42,7 @@ pipeline {
                }
             }
         }
+       /*
         stage('gatk_wait'){
             steps {
               script {
@@ -78,5 +79,6 @@ pipeline {
                }
             }
         }
+        */
     }
 }
