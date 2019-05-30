@@ -24,12 +24,12 @@ pipeline {
          stage ('bwa_cc') {
             steps {
                script {
-                  /*
+                  
                   File f = new File("env.txt")
                   params.each {param ->
                        f.write("${param.key}"+"="+"${param.value}")
                   }
-                  */
+                  sh 'cat env.txt'
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
                   def ti =  env.BUILD_ID +'_bwa_cc'
