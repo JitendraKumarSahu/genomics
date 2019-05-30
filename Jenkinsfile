@@ -1,7 +1,6 @@
 pipeline {
    environment {
        didSucceed = true
-      params.each{param-> echo ${param.key}}
        /*
        AMQP_PORT =	15672	
        AMQP_PWD	 = "jenkins"	
@@ -31,6 +30,7 @@ pipeline {
                        f.write("${param.key}"+"="+"${param.value}")
                   }
                   */
+                  params.each{param-> (echo ${param.key})}
                   sh "echo ${params.AMQP_PORT}"
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
