@@ -62,7 +62,7 @@ pipeline {
                   def ti =  env.BUILD_ID +'_gatk_cc'
                   env.ti = ti
                   sh "env >> env3.txt"
-                  sh 'python3 create_cc.py env3.txt gatkjob'
+                  sh 'python3 create_cc.py env_params.txt env3.txt gatkjob'
                }
             }
         }
@@ -86,7 +86,7 @@ pipeline {
                   def ti =  env.BUILD_ID +'_vcf_cc'
                   env.ti = ti
                   sh "env >> env5.txt"
-                  sh 'python3 create_cc.py env5.txt vcfjob'
+                  sh 'python3 create_cc.py env_params.txt env5.txt vcfjob'
                }
             }    
         }
