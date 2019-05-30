@@ -1,9 +1,7 @@
 pipeline {
-   script{
-     sh 'echo ji'  
-   }
    environment {
        didSucceed = true
+      params.each{param-> echo ${param.key}}
        /*
        AMQP_PORT =	15672	
        AMQP_PWD	 = "jenkins"	
