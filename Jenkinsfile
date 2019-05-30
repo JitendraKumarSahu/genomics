@@ -30,7 +30,7 @@ pipeline {
                        f.write("${param.key}"+"="+"${param.value}")
                   }
                   */
-                  sh 'echo ${params.AMQP_PORT}'
+                  sh "echo ${params.AMQP_PORT}"
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
                   def ti =  env.BUILD_ID +'_bwa_cc'
