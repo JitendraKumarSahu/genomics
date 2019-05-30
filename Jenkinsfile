@@ -1,4 +1,7 @@
 pipeline {
+   script{
+     sh 'echo ji'  
+   }
    environment {
        didSucceed = true
        /*
@@ -21,9 +24,6 @@ pipeline {
    }
    agent any
     stages {
-       script {
-         sh 'echo ji'
-       }
          stage ('bwa_cc') {
             steps {
                script {
