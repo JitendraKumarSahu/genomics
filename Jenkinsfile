@@ -21,6 +21,9 @@ pipeline {
    }
    agent any
     stages {
+       script {
+         sh 'echo ji'
+       }
          stage ('bwa_cc') {
             steps {
                script {
