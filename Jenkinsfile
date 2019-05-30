@@ -30,7 +30,7 @@ pipeline {
                        f.write("${param.key}"+"="+"${param.value}")
                   }
                   */
-                  params.each{sh "echo ${param.key}=${param.value}"}
+                  params.each{param-> sh "echo ${param.key}=${param.value}"}
                   //sh "echo ${params.AMQP_PORT}"
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
