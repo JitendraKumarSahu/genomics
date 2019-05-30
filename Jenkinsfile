@@ -31,14 +31,14 @@ pipeline {
                   }
                   */
                   params.each{param-> sh "echo ${param.key}=${param.value} >> env.txt"}
-                  sh 'cat env.txt'
+                  sh 'cat params.txt'
                   env.CURRENT_TASK = 'bwa_cc'
                   env.PARENT_TASK = null
                   def ti =  env.BUILD_ID +'_bwa_cc'
                   env.ti = ti
                   //sh 'echo "${BUILD_ID}_bwa_cc" >> env.ti'
                   sh "env >> env1.txt"
-                  sh 'python3 create_cc.py env1.txt bwajob'
+                  sh 'python3 create_cc.py params.txt env1.txt bwajob'
                }
             }
          }
