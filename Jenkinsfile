@@ -64,8 +64,6 @@ pipeline {
                }
             }
         }
-       
-       /*
         stage('gatk_wait'){
             steps {
               script {
@@ -73,8 +71,8 @@ pipeline {
                  env.PARENT_TASK = 'gatk_cc'
                  def ti =  env.BUILD_ID +'_gatk_wait'
                  env.ti = ti
-                 sh "env >> env.txt"
-                 //sh "python3 noop.py env.txt"
+                 sh "env >> env4.txt"
+                 sh "python3 noop.py env4.txt"
               }
            }
         }
@@ -85,8 +83,8 @@ pipeline {
                   env.PARENT_TASK = 'gatk_wait'
                   def ti =  env.BUILD_ID +'_vcf_cc'
                   env.ti = ti
-                  sh "env >> env.txt"
-                  sh 'python3 create_cc.py env.txt'
+                  sh "env >> env5.txt"
+                  sh 'python3 create_cc.py env5.txt vcfjob'
                }
             }    
         }
@@ -97,11 +95,10 @@ pipeline {
                  env.PARENT_TASK = 'vcf_cc'
                  def ti =  env.BUILD_ID +'_vcf_wait'
                  env.ti = ti
-                 sh "env >> env.txt"
-                 //sh "python3 noop.py env.txt"
+                 sh "env >> env6.txt"
+                 sh "python3 noop.py env6.txt"
                }
             }
         }
-        */
     }
 }
