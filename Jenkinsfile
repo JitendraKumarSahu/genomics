@@ -63,7 +63,7 @@ pipeline {
                   def ti =  env.BUILD_ID +'_vcf_cc'
                   env.ti = ti
                   sh "env >> env5.txt"
-                  sh 'python3 create_cc.py env_params.txt env5.txt vcfjob'
+                  //sh 'python3 create_cc.py env_params.txt env5.txt vcfjob'
                }
             }    
         }
