@@ -67,7 +67,7 @@ pipeline {
                }
             }    
         }
-       /*
+       
         stage('vcf_wait'){
             steps {
                script {
@@ -76,10 +76,10 @@ pipeline {
                  def ti =  env.BUILD_ID +'_vcf_wait'
                  env.ti = ti
                  sh "env >> env6.txt"
-                 sh "python3 noop.py env6.txt"
+                 //sh "python3 noop.py env6.txt"
                }
             }
         }  
-        */
+        
     }
 }
