@@ -67,6 +67,7 @@ pipeline {
                }
             }    
         }
+       /*
         stage('vcf_wait'){
             steps {
                script {
@@ -78,6 +79,7 @@ pipeline {
                  sh "python3 noop.py env6.txt"
                }
             }
-        }    
+        }  
+        */
     }
 }
