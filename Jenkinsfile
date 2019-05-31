@@ -67,6 +67,7 @@ pipeline {
                }
             }    
         }
+        /*
         stage('vcf_wait'){
             steps {
                script {
@@ -79,6 +80,6 @@ pipeline {
                }
             }
         }
-        
+        */        
     }
 }
